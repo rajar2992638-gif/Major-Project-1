@@ -1,0 +1,400 @@
+/* =========================
+   Main Header
+========================= */
+
+.main-header {
+
+  background: #ffffff !important;
+
+  height: 82px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  transition: 0.3s ease;
+
+  z-index: 1000;
+
+}
+
+
+.header-container {
+
+  padding: 0 35px;
+
+}
+
+
+
+
+
+/* =========================
+   Logo
+========================= */
+
+
+.brand-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  font-size: 30px !important;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  color: #2563eb !important;
+
+  cursor: pointer;
+
+}
+
+
+
+.brand-icon {
+
+  font-size: 35px;
+
+  margin-right: 10px;
+
+  color: #ff9800;
+
+  transition: 0.3s;
+
+}
+
+
+
+.brand-logo:hover .brand-icon {
+
+  transform: rotate(-10deg) scale(1.1);
+
+}
+
+
+
+
+
+/* =========================
+   Search Box
+========================= */
+
+
+.search-area {
+
+  width: 50%;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+}
+
+
+
+
+/* =========================
+   Right Menu
+========================= */
+
+
+.header-menu {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+}
+
+
+
+
+
+/* Icons */
+
+
+.header-icon {
+
+  position: relative;
+
+  color: #374151 !important;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+
+}
+
+
+
+.header-icon:hover {
+
+  color: #2563eb !important;
+
+  transform: translateY(-4px);
+
+}
+
+
+
+
+
+/* Cart Badge */
+
+
+.cart-badge {
+
+  position: absolute;
+
+  top: -10px;
+
+  right: -12px;
+
+  font-size: 12px;
+
+  padding: 5px 7px;
+
+}
+
+
+
+
+
+/* =========================
+   User Dropdown
+========================= */
+
+
+.dropdown-toggle {
+
+  color: #374151 !important;
+
+  font-weight: 600;
+
+}
+
+
+
+.dropdown-toggle::after {
+
+  margin-left: 8px;
+
+}
+
+
+
+
+.dropdown-menu {
+
+  border: none !important;
+
+  border-radius: 18px !important;
+
+  padding: 10px !important;
+
+  box-shadow:
+
+  0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+
+
+
+
+.dropdown-item {
+
+  padding: 12px 20px !important;
+
+  border-radius: 10px;
+
+  font-weight: 500;
+
+  transition:0.3s;
+
+}
+
+
+
+.dropdown-item:hover {
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:white;
+
+}
+
+
+
+
+
+/* =========================
+   Login Button
+========================= */
+
+
+.login-btn {
+
+  font-weight:700;
+
+  color:#2563eb !important;
+
+  transition:0.3s;
+
+}
+
+
+
+.login-btn:hover {
+
+  transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* =========================
+   Register Button
+========================= */
+
+
+.register-btn {
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+  );
+
+
+  color:white !important;
+
+  padding:10px 25px !important;
+
+  border-radius:30px;
+
+  font-weight:700;
+
+  transition:0.3s;
+
+
+}
+
+
+
+.register-btn:hover {
+
+
+  transform:scale(1.08);
+
+
+  box-shadow:
+
+  0 10px 25px rgba(37,99,235,0.4);
+
+
+  color:white !important;
+
+
+}
+
+
+
+
+
+/* =========================
+   Navbar Shadow On Scroll Feel
+========================= */
+
+
+.main-header:hover {
+
+
+  box-shadow:
+
+  0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+
+@media(max-width:992px){
+
+
+  .main-header {
+
+    height:auto;
+
+    padding:15px 0;
+
+  }
+
+
+
+  .header-container {
+
+    padding:0 15px;
+
+  }
+
+
+
+  .brand-logo {
+
+    font-size:24px !important;
+
+  }
+
+
+
+  .brand-icon {
+
+    font-size:28px;
+
+  }
+
+
+
+  .search-area {
+
+    width:100%;
+
+    margin:20px 0;
+
+  }
+
+
+
+  .header-menu {
+
+    gap:10px;
+
+    justify-content:center;
+
+  }
+
+
+
+}

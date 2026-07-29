@@ -1,0 +1,587 @@
+.hero-slider img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.offer-card {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.offer-card .card-body {
+  padding: 30px;
+}
+
+.offer-card h3 {
+  font-weight: bold;
+}
+
+.offer-card button {
+  margin-top: 15px;
+}
+
+.carousel .slide img {
+  border-radius: 15px;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+@media (max-width:768px){
+
+.hero-slider img{
+height:220px;
+}
+
+}
+/* Banner Section */
+
+.text-banner {
+  height: 350px;
+  background: linear-gradient(135deg, #111827, #2563eb);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.text-banner h1 {
+  font-size: 45px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.text-banner p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.text-banner button {
+  background: #ffc107;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.text-banner button:hover {
+  background: #ff9800;
+  transform: scale(1.05);
+}
+
+
+/* Carousel Round Design */
+
+.carousel .slide {
+  background: transparent;
+}
+
+.carousel-root {
+  margin-top: 20px;
+}
+
+.carousel .control-arrow {
+  opacity: 0.8;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 10px solid #fff;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 10px solid #fff;
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+  .text-banner {
+    height: 250px;
+  }
+
+  .text-banner h1 {
+    font-size: 28px;
+  }
+
+  .text-banner p {
+    font-size: 16px;
+  }
+
+  .text-banner button {
+    padding: 10px 25px;
+    font-size: 15px;
+  }
+
+}
+/* ================= HEADER ================= */
+
+.main-header {
+  background: white;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* Logo */
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.brand-logo:hover {
+  color: #1d4ed8;
+}
+
+
+/* Search Box */
+
+.search-container {
+  flex: 1;
+  max-width: 620px;
+  margin: auto;
+  display: flex;
+  height: 48px;
+}
+
+
+.search-container input {
+  flex:1;
+  border: 2px solid #fbbf24;
+  border-right: none;
+  border-radius: 30px 0 0 30px;
+  padding-left: 20px;
+  font-size: 16px;
+  outline:none;
+}
+
+
+.search-container input:focus {
+  box-shadow: 0 0 8px rgba(251,191,36,0.5);
+}
+
+
+.search-btn {
+  width: 120px;
+  border:none;
+  background:#fbbf24;
+  color:#111;
+  font-weight:700;
+  border-radius:0 30px 30px 0;
+  cursor:pointer;
+  transition:.3s;
+}
+
+
+.search-btn:hover{
+  background:#f59e0b;
+}
+
+
+/* Right Icons */
+
+.header-icons {
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+
+.header-icons a{
+  color:#555;
+  font-size:22px;
+  transition:.3s;
+}
+
+
+.header-icons a:hover{
+  color:#2563eb;
+  transform:translateY(-3px);
+}
+
+
+/* User Dropdown */
+
+.user-name{
+  font-weight:600;
+  color:#333;
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.main-header{
+  padding:0 15px;
+}
+
+.brand-logo{
+  font-size:20px;
+}
+
+.search-container{
+  display:none;
+}
+
+.header-icons{
+  gap:15px;
+}
+
+}
+/* Festival Sale Banner */
+
+.festival-banner {
+  background: linear-gradient(135deg, #111827, #000000);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 40px 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+
+/* Background Glow */
+
+.festival-banner::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #ffc107;
+  border-radius: 50%;
+  top: -150px;
+  right: -120px;
+  opacity: 0.18;
+}
+
+
+.festival-banner::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: #ff5722;
+  border-radius: 50%;
+  bottom: -120px;
+  left: -100px;
+  opacity: 0.15;
+}
+
+
+/* Hover Effect */
+
+.festival-banner:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 40px rgba(0,0,0,0.5);
+}
+
+
+/* Title */
+
+.festival-banner h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 45px;
+  font-weight: 800;
+  color: #ffc107;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+/* Offer */
+
+.festival-banner h4 {
+  position: relative;
+  z-index: 1;
+  font-size: 38px;
+  font-weight: 900;
+  margin-top: 15px;
+  background: linear-gradient(
+    45deg,
+    #ffeb3b,
+    #ff9800
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Description */
+
+.festival-banner p {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  color: #d1d5db;
+  margin: 20px 0;
+}
+
+
+/* Shop Button */
+
+.shop-btn {
+
+  position: relative;
+  z-index: 1;
+
+  background: linear-gradient(
+    45deg,
+    #ff9800,
+    #ff5722
+  );
+
+  border: none;
+  border-radius: 50px;
+
+  padding: 14px 45px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: white;
+
+  transition: 0.3s ease;
+}
+
+
+.shop-btn:hover {
+
+  transform: scale(1.12);
+
+  box-shadow:
+  0 10px 25px rgba(255,152,0,0.5);
+
+  color: white;
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+  .festival-banner{
+    padding:30px 15px;
+  }
+
+
+  .festival-banner h2{
+    font-size:32px;
+  }
+
+
+  .festival-banner h4{
+    font-size:28px;
+  }
+
+
+  .festival-banner p{
+    font-size:16px;
+  }
+
+
+  .shop-btn{
+    padding:12px 35px;
+    font-size:17px;
+  }
+
+}
+/* Category Section */
+
+.category-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+
+/* Remove Link Style */
+
+.category-menu a {
+  text-decoration: none;
+}
+
+
+/* Button Base Style */
+
+.category-btn {
+
+  width: 160px;
+  height: 60px;
+
+  border: none;
+  border-radius: 35px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  color: white;
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.4s ease;
+
+  box-shadow: 
+  0 10px 20px rgba(0,0,0,0.2);
+
+}
+
+
+/* Shine Animation */
+
+.category-btn::before {
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-100%;
+
+  width:100%;
+  height:100%;
+
+  background:rgba(255,255,255,0.25);
+
+  transform:skewX(-30deg);
+
+  transition:0.5s;
+
+}
+
+
+.category-btn:hover::before {
+
+  left:120%;
+
+}
+
+
+/* Hover */
+
+.category-btn:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow:
+  0 15px 35px rgba(0,0,0,0.35);
+
+  color:white;
+
+}
+
+
+
+/* Individual Styles */
+
+
+.mobile-btn {
+
+background:
+linear-gradient(135deg,#3b82f6,#1e40af);
+
+}
+
+
+.laptop-btn {
+
+background:
+linear-gradient(135deg,#22c55e,#166534);
+
+}
+
+
+.headphone-btn {
+
+background:
+linear-gradient(135deg,#374151,#000000);
+
+}
+
+
+.watch-btn {
+
+background:
+linear-gradient(135deg,#facc15,#d97706);
+
+}
+
+
+.camera-btn {
+
+background:
+linear-gradient(135deg,#ef4444,#991b1b);
+
+}
+
+
+.gaming-btn {
+
+background:
+linear-gradient(135deg,#a855f7,#581c87);
+
+}
+
+
+
+/* Text Glow */
+
+.category-btn:hover {
+
+text-shadow:
+0 0 8px rgba(255,255,255,0.8);
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.category-btn{
+
+width:140px;
+height:52px;
+font-size:16px;
+
+}
+
+}

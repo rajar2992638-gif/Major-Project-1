@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-responsive-carousel": "^3.2.23",
+    "redux-devtools-extension": "^2.13.9"
+  }
+}
