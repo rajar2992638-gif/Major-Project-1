@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import { Container } from "react-bootstrap";
 import Home from "./Components/Home";
-import Footer from "./Components/Footer";
+
 import SignupScreen from "./Components/Screens/SignupScreen";
 import LoginScreen from "./Components/Screens/LoginScreen";
 import ProductDetails from "./Components/Screens/ProductDetails";
