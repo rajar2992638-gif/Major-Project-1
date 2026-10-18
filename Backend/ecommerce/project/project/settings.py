@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-5lgnw*c^=b1=y)87n-ecx!*+1n*8l_0^sog_gf19^m8%0)r2p-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "raja-ecommerce-backend.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
