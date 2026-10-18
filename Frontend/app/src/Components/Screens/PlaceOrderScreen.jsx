@@ -18,11 +18,10 @@ function PlaceOrderScreen() {
   const orderCreate = useSelector((state) => state.orderCreate);
 
   const {
-    loading,
-    success,
-    error,
-    order,
-  } = orderCreate;
+  loading,
+  success,
+  error,
+} = orderCreate;
 
   const itemsPrice = Number(
     cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)

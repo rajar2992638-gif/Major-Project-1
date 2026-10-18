@@ -7,7 +7,7 @@ import successSound from "../../assets/success.mp3";
 
 function OrderSuccessScreen() {
   const navigate = useNavigate();
-  const [showConfetti, setShowConfetti] = useState(true);
+  const [showConfetti] = useState(true);
 
 //  const navigate = useNavigate();
 

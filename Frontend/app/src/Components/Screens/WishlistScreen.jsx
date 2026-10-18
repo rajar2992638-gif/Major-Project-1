@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import {
   Container,
@@ -16,80 +17,73 @@ import {
 import { useNavigate } from "react-router-dom";
 import "./WishlistScreen.css";
 
+const defaultWishlist = [
+  {
+    _id: 1,
+    name: "Apple iPhone 16",
+    image: "https://via.placeholder.com/300x300",
+    price: 79999,
+    oldPrice: 89999,
+    rating: 4.8,
+    discount: "11% OFF",
+  },
+  {
+    _id: 2,
+    name: "Samsung Galaxy S25",
+    image: "https://via.placeholder.com/300x300",
+    price: 69999,
+    oldPrice: 79999,
+    rating: 4.6,
+    discount: "12% OFF",
+  },
+  {
+    _id: 3,
+    name: "OnePlus 13",
+    image: "https://via.placeholder.com/300x300",
+    price: 59999,
+    oldPrice: 65999,
+    rating: 4.7,
+    discount: "9% OFF",
+  },
+];
+
 function WishlistScreen() {
   const navigate = useNavigate();
-
-  const defaultWishlist = [
-    {
-      _id: 1,
-      name: "Apple iPhone 16",
-      image: "https://via.placeholder.com/300x300",
-      price: 79999,
-      oldPrice: 89999,
-      rating: 4.8,
-      discount: "11% OFF",
-    },
-    {
-      _id: 2,
-      name: "Samsung Galaxy S25",
-      image: "https://via.placeholder.com/300x300",
-      price: 69999,
-      oldPrice: 79999,
-      rating: 4.6,
-      discount: "12% OFF",
-    },
-    {
-      _id: 3,
-      name: "OnePlus 13",
-      image: "https://via.placeholder.com/300x300",
-      price: 59999,
-      oldPrice: 65999,
-      rating: 4.7,
-      discount: "9% OFF",
-    },
-  ];
-
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
     const savedWishlist = localStorage.getItem("wishlist");
 
     if (savedWishlist) {
-      setWishlist(JSON.parse(savedWishlist));
+      try {
+        setWishlist(JSON.parse(savedWishlist));
+      } catch (error) {
+        console.error("Failed to load wishlist:", error);
+        setWishlist(defaultWishlist);
+      }
     } else {
       setWishlist(defaultWishlist);
-      localStorage.setItem(
-        "wishlist",
-        JSON.stringify(defaultWishlist)
-      );
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(
-      "wishlist",
-      JSON.stringify(wishlist)
-    );
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
   const removeFromWishlist = (id) => {
-    const updatedWishlist = wishlist.filter(
-      (item) => item._id !== id
+    setWishlist((currentWishlist) =>
+      currentWishlist.filter((item) => item._id !== id)
     );
-    setWishlist(updatedWishlist);
   };
 
   return (
     <Container className="wishlist-page mt-4">
-
       <div className="wishlist-header">
         <h2>
           <FaHeart className="heart-icon" /> My Wishlist
         </h2>
 
-        <Badge bg="danger">
-          {wishlist.length} Items
-        </Badge>
+        <Badge bg="danger">{wishlist.length} Items</Badge>
       </div>
 
       {wishlist.length === 0 ? (
@@ -116,26 +110,20 @@ function WishlistScreen() {
               className="mb-4"
             >
               <Card className="wishlist-card h-100">
-
                 <div className="wishlist-image-box">
-
                   <Card.Img
                     variant="top"
                     src={product.image}
                     className="wishlist-image"
+                    alt={product.name}
                   />
 
-                  <Badge
-                    bg="success"
-                    className="discount-badge"
-                  >
+                  <Badge bg="success" className="discount-badge">
                     {product.discount}
                   </Badge>
-
                 </div>
 
                 <Card.Body>
-
                   <Card.Title className="product-title">
                     {product.name}
                   </Card.Title>
@@ -162,7 +150,6 @@ function WishlistScreen() {
                   </p>
 
                   <div className="d-grid gap-2">
-
                     <Button
                       variant="warning"
                       onClick={() =>
@@ -175,18 +162,13 @@ function WishlistScreen() {
 
                     <Button
                       variant="danger"
-                      onClick={() =>
-                        removeFromWishlist(product._id)
-                      }
+                      onClick={() => removeFromWishlist(product._id)}
                     >
                       <FaTrash className="me-2" />
                       Remove
                     </Button>
-
                   </div>
-
                 </Card.Body>
-
               </Card>
             </Col>
           ))}
