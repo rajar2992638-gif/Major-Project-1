@@ -15,7 +15,7 @@ function DashboardScreen() {
     const fetchUsers = async () => {
       try {
         const { data } = await axios.get(
-          "http://127.0.0.1:8000/api/users/"
+         "https://raja-ecommerce-backend.onrender.com/api/users/"
         );
 
         setUsers(data);
