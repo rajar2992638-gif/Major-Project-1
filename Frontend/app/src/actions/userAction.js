@@ -1,4 +1,6 @@
+
 import axios from "axios";
+
 import {
   USER_SIGNUP_REQUEST,
   USER_SIGNUP_SUCCESS,
@@ -6,16 +8,17 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
+  USER_LOGOUT,
 } from "../constants/userConstants";
-import { USER_LOGOUT } from "../constants/userConstants";
+
+// Render Backend URL
+axios.defaults.baseURL = "https://raja-ecommerce-backend.onrender.com";
 
 // ===================== SIGNUP =====================
 
 export const signup = (fname, lname, email, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: USER_SIGNUP_REQUEST,
-    });
+    dispatch({ type: USER_SIGNUP_REQUEST });
 
     const config = {
       headers: {
@@ -38,14 +41,13 @@ export const signup = (fname, lname, email, password) => async (dispatch) => {
       type: USER_SIGNUP_SUCCESS,
       payload: data,
     });
-
   } catch (error) {
     dispatch({
       type: USER_SIGNUP_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response?.data?.detail ||
+        error.response?.data?.message ||
+        error.message,
     });
   }
 };
@@ -54,9 +56,7 @@ export const signup = (fname, lname, email, password) => async (dispatch) => {
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    dispatch({
-      type: USER_LOGIN_REQUEST,
-    });
+    dispatch({ type: USER_LOGIN_REQUEST });
 
     const config = {
       headers: {
@@ -64,87 +64,80 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-const { data } = await axios.post(
-  "/api/user/login/",
-  {
-    username: email,
-    password,
-  },
-  config
-);
-
-console.log(data);
-
+    const { data } = await axios.post(
+      "/api/user/login/",
+      {
+        username: email,
+        password,
+      },
+      config
+    );
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
 
-    localStorage.setItem(
-      "userInfo",
-      JSON.stringify(data)
-    );
-
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+        error.response?.data?.detail ||
+        error.response?.data?.message ||
+        error.message,
     });
   }
 };
+
+// ===================== LOGOUT =====================
+
 export const logout = () => (dispatch) => {
-    localStorage.removeItem("userInfo");
-    dispatch({
-        type: USER_LOGOUT,
-    });
+  localStorage.removeItem("userInfo");
 
-    window.location.href = "/login";
+  dispatch({ type: USER_LOGOUT });
+
+  window.location.href = "/login";
 };
 
-//change tha password//
+// ===================== CHANGE PASSWORD =====================
 
-export const changePassword = (oldPassword, newPassword) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: "CHANGE_PASSWORD_REQUEST",
-    });
+export const changePassword =
+  (oldPassword, newPassword) => async (dispatch, getState) => {
+    try {
+      dispatch({ type: "CHANGE_PASSWORD_REQUEST" });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+      const {
+        userLogin: { userInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo?.token}`,
+        },
+      };
 
-    const { data } = await axios.put(
-      "/api/users/change-password/",
-      {
-        oldPassword,
-        newPassword,
-      },
-      config
-    );
+      const { data } = await axios.put(
+        "/api/users/change-password/",
+        {
+          oldPassword,
+          newPassword,
+        },
+        config
+      );
 
-    dispatch({
-      type: "CHANGE_PASSWORD_SUCCESS",
-      payload: data,
-    });
-
-  } catch (error) {
-    dispatch({
-      type: "CHANGE_PASSWORD_FAIL",
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
-    });
-  }
-};
+      dispatch({
+        type: "CHANGE_PASSWORD_SUCCESS",
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: "CHANGE_PASSWORD_FAIL",
+        payload:
+          error.response?.data?.detail ||
+          error.response?.data?.message ||
+          error.message,
+      });
+    }
+  };
